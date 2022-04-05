@@ -1,0 +1,39 @@
+1. Add the current date to the text file today.txt as a string.
+from datetime import date
+now = date.today()
+now_str = now.isoformat()
+with open('today.txt', 'wt') as output:
+    print(now_str, file=output)
+2. Read the text file today.txt into the string today_string
+with open('today.txt', 'rt') as input:
+    today_string = input.read()
+    today_string
+
+3. Parse the date from today_string.
+from datetime import datetime
+fmt = '%Y-%m-%d\n'
+datetime.strptime(today_string, fmt)
+
+4. List the files in your current directory
+ import os
+os.listdir('.')
+5. Create a list of all of the files in your parent directory (minimum five files should be available).
+ os.listdir('..')
+
+6. Use multiprocessing to create three separate processes. Make each one wait a random number of seconds between one and five, print the current time, and then exit.
+ !python multi_process.py
+
+7. Create a date object of your day of birth.
+ my_day = date(1996, 8, 10)
+my_day
+8. What day of the week was your day of birth?
+ With weekday(), Monday is 0 and Sunday is 6. With isoweekday(), Monday is 1 and Sunday is 7. Therefore, this date is a Saturday.
+
+my_day.weekday()
+
+my_day.isoweekday()
+
+9. When will you be (or when were you) 10,000 days old?
+ from datetime import timedelta
+ten_thousand = my_day + timedelta(days=10000)
+ten_thousand
